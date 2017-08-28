@@ -1,0 +1,16 @@
+<div class="container">
+  <h3>{{formModel.Title}}</h3>
+  <form [formGroup]="myForm">
+    <div class="row">
+      <div *ngFor= "let group of sortedFormFields">
+        <form-field-group [formFieldGroup]="group" [parentFormGroup]="myForm" class="col-md-6"></form-field-group>
+      </div>
+    </div>
+    <button class="btn btn-success" [disabled]="myForm.pristine || myForm.status != 'VALID'" (click)="onSubmit()">
+      Submit
+    </button>
+  </form>
+  <p *ngIf="formData">
+    Form Value: {{formData | json}}
+  </p>
+</div>

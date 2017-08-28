@@ -1,0 +1,11 @@
+<div>
+  <textarea #jsonBox (keyup)="onJsonInput(jsonBox.value)">
+  Paste in the JSON object here
+  </textarea>
+</div>
+<div>
+  <button (click)="renderJson()">Render JSON FormModel</button>
+</div>
+<div *ngIf="formModel">
+  <form-model [formModel]="formModel"></form-model>
+</div>

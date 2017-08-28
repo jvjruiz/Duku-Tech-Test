@@ -1,0 +1,13 @@
+<div class="row">
+  <h3>{{formFieldGroup[0].GroupName}}</h3>
+  <div *ngFor="let field of formFieldGroup | orderBy: 'FieldOrder'" [ngClass]="getClass(field)">
+    <div *ngIf="field.IsHidden">
+      <hidden [field]="field" [parentFormGroup]="parentFormGroup"></hidden>
+    </div>
+    <div *ngIf="!field.IsHidden && field.IsDisplayField" [ngSwitch]="field.FieldEditorType">
+      <text-input *ngSwitchCase="4" [field]="field" [parentFormGroup]="parentFormGroup"></text-input>
+      <dropdown *ngSwitchCase="12" [field]="field" [parentFormGroup]="parentFormGroup"></dropdown>
+      <memo *ngSwitchCase="20" [field]="field" [parentFormGroup]="parentFormGroup"></memo>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,8 @@
+<div [formGroup]="parentFormGroup">
+  <label>
+    {{field.DisplayText}}:
+  </label>
+  <!-- checks to see if input is a date or text box to render proper input-->
+  <input *ngIf='isDate;else text_box' [formControlName]='field.Name' type="date">
+  <ng-template #text_box><input type="text" [formControlName]="field.Name"></ng-template>
+</div>

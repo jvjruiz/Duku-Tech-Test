@@ -1,0 +1,10 @@
+<div [formGroup]="parentFormGroup">
+  <label>
+    {{field.DisplayText}}
+  </label>
+  <select [formControlName]='field.Name'>
+    <option *ngFor="let option of options" [value]="option.value">
+      {{option.display}}
+    </option>
+  </select>
+</div>
