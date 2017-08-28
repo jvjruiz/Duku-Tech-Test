@@ -14,9 +14,29 @@ export class FormFieldGroupComponent implements OnInit {
 
   ngOnInit() {
     this.sortedSubCols = [];
+    this.sortSubCols();
   }
 
-  
+  sortSubCols() {
+    let tempArray = [];
+    let formFieldGroup = this.formFieldGroup.sort((a,b) => {
+      return a.FieldOrder > b.FieldOrder
+    });
+    for(let i = 0; i<formFieldGroup.length; i++) {
+      if(formFieldGroup[i].SubCol === 0 || !formFieldGroup[i].SubCol) {
+        tempArray.push(formFieldGroup[i])
+        this.sortedSubCols.push(tempArray)
+        tempArray = [];
+      }
+      else {
+        tempArray.push(formFieldGroup[i]);
+        if(formFieldGroup[i].SubCol > formFieldGroup[i+1].SubCol) {
+          this.sortedSubCols.push(tempArray);
+          tempArray = [];
+        }
+      }
+    }
+  }
 
   getClass(field) {
     if(field.SubCol === 0 || !field.SubCol) {
