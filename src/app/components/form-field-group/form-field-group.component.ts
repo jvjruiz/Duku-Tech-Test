@@ -52,3 +52,5 @@ export class FormFieldGroupComponent implements OnInit {
 //this component uses a pipe to sort out the groups by FieldOrder
 //if the field is hidden, will render a hidden component
 //if the field is to be displayed and not hidden, uses a switch in template to generate the correct input box
+//TODO: finish sortSubCol function and make getClass have give out different classes based on
+//length of sorted out field for subCol
